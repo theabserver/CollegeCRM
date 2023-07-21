@@ -1,5 +1,5 @@
 import { GET_USER, USER_LOADED } from "../Actions/types";
-import { put, takeLatest, all } from 'redux-saga/effects';
+import { put, takeLatest, all } from "redux-saga/effects";
 
 function* fetchUser(formData) {
   const json = yield fetch("http://localhost:3300/login", {
@@ -17,6 +17,8 @@ function* fetchUser(formData) {
       }
     })
     .catch((error) => console.log(error));
+  localStorage.setItem("usertoken", json.user.token);
+  localStorage.setItem("user", json.user);
   yield put({ type: USER_LOADED, user: json.user });
 }
 
