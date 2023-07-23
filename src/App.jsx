@@ -10,7 +10,6 @@ function App() {
   return (
     <div className="app-container bg-light">
       <Router history={history}>
-        <Container>
           <Routes>
             <Route exact path="/" element={<PrivateRoute />}>
               <Route exact path="/" element={<Home />} />
@@ -18,7 +17,8 @@ function App() {
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/*" element={<NotFound />} />
           </Routes>
-        </Container>
+        {/* <Container>
+        </Container> */}
       </Router>
     </div>
   );
