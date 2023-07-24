@@ -17,8 +17,8 @@ function* fetchUser(formData) {
       }
     })
     .catch((error) => console.log(error));
-  localStorage.setItem("usertoken", json.user.token);
-  localStorage.setItem("user", json.user);
+  sessionStorage.setItem("usertoken", json.user.token);
+  sessionStorage.setItem("user", json.user);
   yield put({ type: USER_LOADED, user: json.user });
 }
 

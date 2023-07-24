@@ -29,8 +29,8 @@ let Login = ({ getUser }) => {
     });
   };
   const hasUser =
-    localStorage.getItem("user") &&
-    localStorage.getItem("usertoken").length > 0;
+    sessionStorage.getItem("user") &&
+    sessionStorage.getItem("usertoken").length > 0;
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -41,10 +41,6 @@ let Login = ({ getUser }) => {
       password: "",
     });
   };
-
-  useEffect(() => {
-    console.log(`User status: ${hasUser}`);
-  }, [hasUser]);
 
   return (
     <>
