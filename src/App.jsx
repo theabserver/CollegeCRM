@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 import { Container } from "@mui/material";
 import { NotFound } from "./Views/NotFound";
+import { createTheme } from '@mui/material/styles';
+import { purple } from '@mui/material/colors';
 
 function App() {
   return (

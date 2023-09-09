@@ -21,7 +21,7 @@ let Login = ({ getUser }) => {
     password: "",
   });
   const loading = useSelector((state) => state.loading);
-  const handleChange = (event) => {
+  const handleChange = (event) => { // generic change handler
     const { name, value } = event.target;
     setFormData({
       ...formData,
@@ -32,14 +32,14 @@ let Login = ({ getUser }) => {
     sessionStorage.getItem("user") &&
     sessionStorage.getItem("usertoken").length > 0;
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event) => { // uncontrolled text inputs
     event.preventDefault();
     console.log("Login credentials:", formData);
     getUser(formData);
-    setFormData({
+    /* setFormData({
       email: "",
       password: "",
-    });
+    }); */
   };
 
   return (

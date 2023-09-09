@@ -7,7 +7,6 @@ import { Students } from "./Students";
 import { Dashboard } from "./Dashboard";
 import { Faculty } from "./Faculty";
 import { Messages } from "./Messages";
-import { BrowserRouter as Route } from "react-router-dom";
 
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
@@ -17,27 +16,42 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   // necessary for content to be below app bar
   ...theme.mixins.toolbar,
 }));
+
 export const Home = () => {
-  const [currentComponent, setCurrentComponent] = useState('dashboard')
+  const [currentComponent, setCurrentComponent] = useState("dashboard");
   // change state from child by passing in a callback as props that updates state in parent
   const setComponent = (component) => {
-    setCurrentComponent(component)
-  }
+    setCurrentComponent(component);
+  };
   const renderComponent = () => {
-    switch(currentComponent){
-      case 'dashboard': return <Dashboard />
-      case 'students': return <Students />
-      case 'messages': return <Messages />
-      case 'faculty': return <Faculty />
-      default: return <Dashboard />
+    switch (currentComponent) {
+      case "dashboard":
+        return <Dashboard />;
+      case "students":
+        return <Students />;
+      case "messages":
+        return <Messages />;
+      case "faculty":
+        return <Faculty />;
+      default:
+        return <Dashboard />;
     }
-  }
+  };
   return (
     <>
-      <MiniDrawer navCB={setComponent} />
-      <Box component="main" sx={{ flexGrow: 1, p: 3 , pl: 12, pt:11, minHeight: `calc(100vh - 136px)`}}>
-        {renderComponent()}
-        {/* <Typography paragraph>
+        <MiniDrawer navCB={setComponent} />
+        <Box
+          component="main"
+          sx={{
+            flexGrow: 1,
+            p: 3,
+            pl: 12,
+            pt: 11,
+            minHeight: `calc(100vh - 136px)`,
+          }}
+        >
+          {renderComponent()}
+          {/* <Typography paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
           dolor purus non enim praesent elementum facilisis leo vel. Risus at
@@ -66,8 +80,8 @@ export const Home = () => {
           eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
           posuere sollicitudin aliquam ultrices sagittis orci a.
         </Typography> */}
-      </Box>
-      <Footer />
+        </Box>
+        <Footer />
     </>
   );
 };

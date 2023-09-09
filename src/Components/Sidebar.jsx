@@ -16,11 +16,11 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import PersonIcon from "@mui/icons-material/Person";
 import SchoolIcon from "@mui/icons-material/School";
 import ChatIcon from "@mui/icons-material/Chat";
 import DashboardIcon from "@mui/icons-material/Dashboard";
-
+import ProfileMenu from "../Components/ProfileMenu"
+import PersonIcon from "@mui/icons-material/Person";
 const drawerWidth = 240;
 
 const DrawerHeader = styled("div")(({ theme }) => ({
@@ -89,7 +89,7 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-export default function MiniDrawer({navCB}) {
+export default function MiniDrawer({ navCB }) {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const iconMap = new Map([
@@ -110,7 +110,7 @@ export default function MiniDrawer({navCB}) {
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
       <AppBar position="fixed" open={open}>
-        <Toolbar>
+        <Toolbar sx={{ display: "flex" }}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -123,9 +123,10 @@ export default function MiniDrawer({navCB}) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
+          <Typography variant="h6" noWrap component="div" sx={{ flex: "1" }}>
             CollegeCRM
           </Typography>
+          <ProfileMenu />
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
